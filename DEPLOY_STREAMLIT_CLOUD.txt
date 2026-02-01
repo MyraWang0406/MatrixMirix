@@ -1,0 +1,15 @@
+Streamlit Community Cloud 必过部署
+
+1. 推送代码：
+   cd creative_eval_demo
+   git add .
+   git commit -m "streamlit_app 完整功能"
+   git push origin main
+
+2. share.streamlit.io → New app → 仓库 MyraWang0406/AIGC-auto-ads，分支 main
+
+3. Main file path 填：streamlit_app.py
+
+4. Deploy
+
+5. 成功后页面显示：投放实验决策系统完整功能（决策看板、评测集、实验队列等）。

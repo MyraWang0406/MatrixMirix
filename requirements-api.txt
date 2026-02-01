@@ -1,0 +1,4 @@
+# API 运行依赖（FastAPI + 原有业务逻辑）
+-r requirements.txt
+fastapi>=0.100.0
+uvicorn[standard]>=0.22.0

@@ -1,0 +1,54 @@
+Step 1｜推送失败根因
+────────────────────────────
+Permission denied = HTTPS 需 Personal Access Token，且 Token 可能过期
+Connection reset = 网络/防火墙/VPN 阻断
+
+修复方案：不通过 git push，改用 GitHub 网页上传（方案 A）
+
+────────────────────────────
+Step 2｜方案 A：网页上传（最短可行）
+────────────────────────────
+
+1. 打开 https://github.com/MyraWang0406/AIGC-auto-ads
+
+2. 点击仓库里的 "Add file" → "Upload files"
+
+3. 把本地 creative_eval_demo 文件夹【里面的所有内容】拖进网页
+   （不要拖 creative_eval_demo 文件夹本身，而是打开它，选中里面所有文件和子文件夹）
+
+   必须包含：
+   - streamlit_app.py
+   - app_demo.py
+   - requirements.txt
+   - decision_summary.py
+   - samples/（整个文件夹）
+   - ui/（整个文件夹）
+   - .streamlit/（整个文件夹，内含 config.toml）
+   - 以及 element_scores.py、eval_schemas.py 等所有 .py 文件
+
+4. 页面底部 Commit message 填：完整功能 streamlit_app
+   点击 "Commit changes"
+
+5. 若提示"某些文件已存在会覆盖"，直接确认
+
+────────────────────────────
+Step 3｜确认 GitHub 上有这些
+────────────────────────────
+
+仓库根目录必须有：
+✓ streamlit_app.py（调用 app_demo.main()）
+✓ app_demo.py
+✓ requirements.txt（内容仅 streamlit>=1.30,<3 和 pydantic>=2,<3）
+✓ decision_summary.py
+✓ samples/（含 vertical_config.json）
+✓ ui/（含 __init__.py、styles.py）
+
+────────────────────────────
+Step 4｜Streamlit Cloud 操作（唯一答案）
+────────────────────────────
+
+Repository：MyraWang0406/AIGC-auto-ads
+Branch：main
+Main file path：streamlit_app.py
+
+部署后应看到：投放实验决策系统完整页面（蓝底标题、决策看板/评测集/Health 导航、结构卡片、实验对照表、门禁状态、元素贡献、变体建议、实验队列侧边栏）

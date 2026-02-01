@@ -1,0 +1,24 @@
+# Cloudflare Containers + Worker 配置（Streamlit 部署）
+# 部署：npx wrangler deploy --config wrangler.containers.toml
+# 或复制为 wrangler.toml 后 npx wrangler deploy
+
+name = "creative-eval-streamlit"
+main = "src/worker.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# 容器配置
+[[containers]]
+class_name = "StreamlitContainer"
+image = "./Dockerfile"
+max_instances = 3
+
+# Durable Objects 绑定（每个容器对应一个 DO）
+[[durable_objects.bindings]]
+name = "STREAMLIT_CONTAINER"
+class_name = "StreamlitContainer"
+
+# 迁移：必须用 new_sqlite_classes（不是 new_classes）
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["StreamlitContainer"]

@@ -1,0 +1,18 @@
+{
+  "name": "creative-eval-streamlit",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev --config wrangler.containers.toml",
+    "deploy": "wrangler deploy --config wrangler.containers.toml",
+    "build": "tsc",
+    "cf-typegen": "wrangler types --config wrangler.containers.toml"
+  },
+  "dependencies": {
+    "@cloudflare/containers": "^0.0.30"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.0.0",
+    "typescript": "^5.0.0",
+    "wrangler": "^4.0.0"
+  }
+}

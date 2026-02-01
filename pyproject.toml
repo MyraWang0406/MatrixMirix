@@ -1,0 +1,20 @@
+# 用于 Cloudflare Workers Python 部署
+# 本地 uvicorn 可直接用 requirements.txt
+
+[project]
+name = "creative-eval-api"
+version = "0.1.0"
+description = "创意评测 API - FastAPI on Cloudflare Workers"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "pydantic>=2.0",
+    "httpx",
+    "python-dotenv",
+]
+
+[dependency-groups]
+dev = [
+    "workers-py",
+    "workers-runtime-sdk",
+]
